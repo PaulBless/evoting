@@ -23,30 +23,32 @@
       <?php
         if(isset($_SESSION['error'])){
           echo "
-            <div class='alert alert-danger alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-warning'></i> Error!</h4>
+            <div class='jq-toast-wrap top-right'>
+              <div class='jq-toast-single jq-has-icon jq-icon-info' style='text-align: left; display: none;'><span class='jq-toast-loader jq-toast-loaded' style='-webkit-transition: width 2.6s ease-in; -o-transition: width 2.6s ease-in; transition: width 2.6s ease-in;  background-color: #f0643b;'></span><span class='close-jq-toast-single'>×</span><h2 class='jq-toast-heading'>Error!</h2>
               ".$_SESSION['error']."
+              </div>
             </div>
           ";
           unset($_SESSION['error']);
         }
+
         if(isset($_SESSION['success'])){
           echo "
-            <div class='alert alert-success alert-dismissible'>
+          <div class='alert alert-success alert-dismissible' style='-webkit-transition: width 2.6s ease-in; -o-transition: width 2.6s ease-in; transition: width 2.6s ease-in; '><span class='jq-toast-loader jq-toast-loaded' style='-webkit-transition: width 2.6s ease-in; -o-transition: width 2.6s ease-in; transition: width 2.6s ease-in;  background-color: #f0643b;'></span>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-check'></i> Success!</h4>
               ".$_SESSION['success']."
-            </div>
+          </div>
+            
           ";
           unset($_SESSION['success']);
         }
+
       ?>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Add New Position </a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
@@ -87,6 +89,57 @@
   <?php include 'includes/positions_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.add-position').submit(function(e)
+    // {
+    //   e.preventDefault();
+    //   alert('submit');
+    //   var data = $(this).serialize();
+    //   $.ajax({
+    //     url: 'positions_add.php',
+    //     method: 'POST',
+    //     data: data,
+    //     success: function(res){
+    //       alert(res);
+    //       if(res === "added"){
+    //         $.toast({
+    //             heading: "Success",
+    //             text: "The Position was added successfully!",
+    //             position: "top-right",
+    //             loaderBg: "#5ba035",
+    //             icon: "success",
+    //             stack: "1"
+    //         });
+    //       }else if( res === "failed"){
+    //         $.toast({
+    //           heading: "Error",
+    //           text: "Sorry... connection to server lost, please check!",
+    //           position: "top-right",
+    //           loaderBg: "#bf441d",
+    //           icon: "error",
+    //           stack: "1"
+    //         });
+    //       }else{
+    //         $.toast({
+    //           heading: "Error",
+    //           text: "Sorry... could not process the request!",
+    //           position: "top-right",
+    //           loaderBg: "#bf441d",
+    //           icon: "error",
+    //           stack: "1"
+    //         });
+    //       }
+    //     },
+    //     error:function(){}
+    //   });
+
+    // });
+
+  })
+</script>
+
 <script>
 $(function(){
   $(document).on('click', '.edit', function(e){
@@ -102,6 +155,8 @@ $(function(){
     var id = $(this).data('id');
     getRow(id);
   });
+
+ 
 
 });
 
@@ -119,6 +174,7 @@ function getRow(id){
     }
   });
 }
-</script>
+
+</script
 </body>
 </html>

@@ -28,6 +28,11 @@
 <script src="../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.min.js"></script>
+
+ <!-- Alerts Libs  -->
+<link rel="stylesheet" href="../dist/libs/jquery.toast.min.js">
+<link rel="stylesheet" href="../dist/libs/sweetalert2.min.js">
+
 <!-- Active Script -->
 <script>
 $(function(){
@@ -73,6 +78,26 @@ $(function(){
     format: 'yyyy-mm-dd'
   }) 
 });
+
+// check only numbers on keypress event
+    function isNumberKey(evt)
+    {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 
+        && (charCode < 48 || charCode > 57))
+        return false;
+        return true;
+    }  
+
+    // function to check inputs
+    function acceptLetters(e)
+    {
+        // allow letters and whitespaces only.
+        var inputValue = event.which;
+        if(!(inputValue >= 65 && inputValue <= 123) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+    }
 </script>
 
 

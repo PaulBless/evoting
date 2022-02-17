@@ -3,9 +3,10 @@
 <head>
   	<meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  	<title>Voting System using PHP</title>
+  	<title>JecVote</title>
   	<!-- Tell the browser to be responsive to screen width -->
   	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="shortcut icon" href="images/vote.png" type="image/png">
   	<!-- Bootstrap 3.3.7 -->
   	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- iCheck for checkboxes and radio inputs -->
@@ -19,6 +20,10 @@
   	<!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   	<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  	
+    <!-- Alerts Libs  -->
+    <link rel="stylesheet" href="dist/libs/jquery.toast.min.css">
+    <link rel="stylesheet" href="dist/libs/sweetalert2.min.css">
 
   	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

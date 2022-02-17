@@ -6,7 +6,8 @@
 		$voter = $_POST['voter'];
 		$password = $_POST['password'];
 
-		$sql = "SELECT * FROM voters WHERE voters_id = '$voter'";
+		// $sql = "SELECT * FROM `voters` WHERE `voters_id` = '$voter'";
+		$sql = "SELECT * FROM `voters` WHERE `phone` = '$voter'";
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
@@ -14,12 +15,15 @@
 		}
 		else{
 			$row = $query->fetch_assoc();
-			if(password_verify($password, $row['password'])){
-				$_SESSION['voter'] = $row['id'];
-			}
-			else{
-				$_SESSION['error'] = 'Incorrect password';
-			}
+			$_SESSION['voter'] = $row['id'];
+			
+			// check password
+			// if(password_verify($password, $row['password'])){
+			// 	$_SESSION['voter'] = $row['id'];
+			// }
+			// else{
+			// 	$_SESSION['error'] = 'Incorrect password';
+			// }
 		}
 		
 	}

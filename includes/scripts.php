@@ -13,6 +13,12 @@
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+
+ <!-- Alerts Libs  -->
+<link rel="stylesheet" href="dist/libs/jquery.toast.min.js">
+<link rel="stylesheet" href="dist/libs/toastr.init.js">
+<link rel="stylesheet" href="dist/libs/sweetalert2.min.js">
+
 <!-- Data Table Initialize -->
 <script>
   $(function () {

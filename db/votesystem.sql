@@ -23,6 +23,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+-- Create Database
+CREATE DATABASE IF NOT EXISTS `votesystem` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 --
 -- Table structure for table `admin`
@@ -36,14 +38,14 @@ CREATE TABLE `admin` (
   `lastname` varchar(50) NOT NULL,
   `photo` varchar(150) NOT NULL,
   `created_on` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`) VALUES
-(1, 'nurhodelta', '$2y$10$fLK8s7ZDnM.1lE7XMP.J6OuPbQ.DPUVKBo7rENnQY7gYq0xAzsKJy', 'Neovic', 'Devierte', 'facebook-profile-image.jpeg', '2018-04-02');
+(1, 'admin', '$2y$10$fLK8s7ZDnM.1lE7XMP.J6OuPbQ.DPUVKBo7rENnQY7gYq0xAzsKJy', 'System', 'Administrator', 'facebook-profile-image.jpeg', CURRENT_TIMESTAMP());
 
 -- --------------------------------------------------------
 
@@ -58,7 +60,7 @@ CREATE TABLE `candidates` (
   `lastname` varchar(30) NOT NULL,
   `photo` varchar(150) NOT NULL,
   `platform` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE `positions` (
   `description` varchar(50) NOT NULL,
   `max_vote` int(11) NOT NULL,
   `priority` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,8 @@ CREATE TABLE `voters` (
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `photo` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `phone` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -99,7 +102,7 @@ CREATE TABLE `votes` (
   `voters_id` int(11) NOT NULL,
   `candidate_id` int(11) NOT NULL,
   `position_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
