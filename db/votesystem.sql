@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`) VALUES
-(1, 'admin', '$2y$10$fLK8s7ZDnM.1lE7XMP.J6OuPbQ.DPUVKBo7rENnQY7gYq0xAzsKJy', 'System', 'Administrator', 'facebook-profile-image.jpeg', CURRENT_TIMESTAMP());
+(1, 'admin', '$2y$10$fLK8s7ZDnM.1lE7XMP.J6OuPbQ.DPUVKBo7rENnQY7gYq0xAzsKJy', 'Jecmas', 'Technologies', 'facebook-profile-image.jpeg', CURRENT_TIMESTAMP());
 
 -- --------------------------------------------------------
 

@@ -12,7 +12,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   	<div class="login-logo ">
-  		<b> <span class="text-primary">JecVote - Login </span> </b>
+  		<b> <span class="text-primary">JecVote - Voter Login </span> </b>
   	</div>
   
   	<div class="login-box-body">

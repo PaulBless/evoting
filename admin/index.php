@@ -33,7 +33,7 @@
   	<?php
   		if(isset($_SESSION['error'])){
   			echo "
-  				<div class='callout callout-danger text-center mt20'>
+  				<div class='callout callout-danger text-center mt20 fade in'>
 			  		<p>".$_SESSION['error']."</p> 
 			  	</div>
   			";
