@@ -3,11 +3,11 @@
 	include 'includes/conn.php';
 
 	if(isset($_POST['login'])){
-		$voter = $_POST['voter'];
-		$password = $_POST['password'];
+		$voter = trim($_POST['voter']);
+		$password = trim($_POST['password']);
 
-		// $sql = "SELECT * FROM `voters` WHERE `voters_id` = '$voter'";
-		$sql = "SELECT * FROM `voters` WHERE `phone` = '$voter'";
+		$sql = "SELECT * FROM `voters` WHERE `voters_id` = '$voter'";
+		// $sql = "SELECT * FROM `voters` WHERE `phone` = '$voter'";
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
@@ -18,12 +18,12 @@
 			$_SESSION['voter'] = $row['id'];
 			
 			// check password
-			// if(password_verify($password, $row['password'])){
-			// 	$_SESSION['voter'] = $row['id'];
-			// }
-			// else{
-			// 	$_SESSION['error'] = 'Incorrect password';
-			// }
+			if(password_verify($password, $row['password'])){
+				$_SESSION['voter'] = $row['id'];
+			}
+			else{
+				$_SESSION['error'] = 'Incorrect password';
+			}
 		}
 		
 	}

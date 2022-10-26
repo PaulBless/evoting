@@ -12,7 +12,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   	<div class="login-logo ">
-  		<b> <span class="text-primary">Jecmas Voting System -  </span> <span class="text-dark"> Welcome </span>  </b>
+  		<b> <span class="text-primary">JecVote - Login </span> </b>
   	</div>
   
   	<div class="login-box-body">
@@ -20,14 +20,14 @@
 
     	<form action="login.php" method="POST" id="loginForm">
       		<div class="form-group has-feedback">
-        		<input type="text" class="form-control" name="voter" placeholder="Voter's Phone Number" required>
-        		<span class="glyphicon glyphicon-phone form-control-feedback"></span>
+        		<input type="text" class="form-control" name="voter" placeholder="Username" required>
+        		<span class="glyphicon glyphicon-user form-control-feedback"></span>
       		</div>
 
-          <!-- <div class="form-group has-feedback">
+          <div class="form-group has-feedback">
             <input type="password" class="form-control" name="password" placeholder="Password" >
             <span class="fa fa-key form-control-feedback"></span>
-          </div> -->
+          </div>
 
       		<div class="row">
     			<div class="col-md-12">

@@ -51,7 +51,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM positions";
+                $sql = "SELECT * FROM `positions`";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
@@ -71,7 +71,7 @@
           <div class="small-box bg-green">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM candidates";
+                $sql = "SELECT * FROM `candidates`";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
@@ -91,7 +91,7 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM voters";
+                $sql = "SELECT * FROM `voters`";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
@@ -111,7 +111,7 @@
           <div class="small-box bg-red">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM votes GROUP BY voters_id";
+                $sql = "SELECT * FROM `votes` GROUP BY `voters_id`";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
@@ -139,7 +139,7 @@
       </div>
 
       <?php
-        $sql = "SELECT * FROM positions ORDER BY priority ASC";
+        $sql = "SELECT * FROM `positions` ORDER BY `priority` ASC";
         $query = $conn->query($sql);
         $inc = 2;
         while($row = $query->fetch_assoc()){
@@ -174,16 +174,16 @@
 
 <?php include 'includes/scripts.php'; ?>
 <?php
-  $sql = "SELECT * FROM positions ORDER BY priority ASC";
+  $sql = "SELECT * FROM `positions` ORDER BY `priority` ASC";
   $query = $conn->query($sql);
   while($row = $query->fetch_assoc()){
-    $sql = "SELECT * FROM candidates WHERE position_id = '".$row['id']."'";
+    $sql = "SELECT * FROM `candidates` WHERE `position_id` = '".$row['id']."'";
     $cquery = $conn->query($sql);
     $carray = array();
     $varray = array();
     while($crow = $cquery->fetch_assoc()){
       array_push($carray, $crow['lastname']);
-      $sql = "SELECT * FROM votes WHERE candidate_id = '".$crow['id']."'";
+      $sql = "SELECT * FROM `votes` WHERE `candidate_id` = '".$crow['id']."'";
       $vquery = $conn->query($sql);
       array_push($varray, $vquery->num_rows);
     }

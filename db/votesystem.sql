@@ -20,16 +20,16 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `votesystem`
---
-
 -- --------------------------------------------------------
 -- Create Database
-CREATE DATABASE IF NOT EXISTS `votesystem` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `jecvote` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+-- Select Database
+use `jecvote`;
 
 --
 -- Table structure for table `admin`
 --
-
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE `voters` (
   `password` varchar(60) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
-  `photo` varchar(150) NOT NULL
+  `photo` varchar(150) NOT NULL,
   `phone` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

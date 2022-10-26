@@ -3,8 +3,8 @@
 	include 'includes/conn.php';
 
 	if(isset($_POST['login'])){
-		$username = $_POST['username'];
-		$password = $_POST['password'];
+		$username = trim($_POST['username']);
+		$password = trim($_POST['password']);
 
 		$sql = "SELECT * FROM admin WHERE username = '$username'";
 		$query = $conn->query($sql);
