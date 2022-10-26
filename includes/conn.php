@@ -8,7 +8,7 @@
 	## remote db connection parameters
 	$host = "sql300.unaux.com";
 	$user = "unaux_32779978";
-	$password = "b0cnN99BRt";
+	$password = "lpp0kjgz6";
 	$database = "unaux_32779978_jecvote";
 	$port = "3306";
 	
