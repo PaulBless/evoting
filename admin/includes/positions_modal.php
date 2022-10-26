@@ -11,14 +11,16 @@
               <!-- <form class="form-horizontal add-position" method="POST" action="#"> -->
               <form class="form-horizontal" method="POST" action="positions_add.php">
                 <div class="form-group">
-                    <label for="description" class="col-sm-3 control-label">Description</label>
+                    <label for="description" class="col-sm-3 control-label">Description 
+                      <span class="text-danger">*</span>
+                    </label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="description" name="description" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="max_vote" class="col-sm-3 control-label">Maximum Vote</label>
+                    <label for="max_vote" class="col-sm-3 control-label">Maximum Vote <span class="text-danger">*</span> </label>
 
                     <div class="col-sm-9">
                       <input type="number" class="form-control" id="max_vote" name="max_vote" min="1" required>

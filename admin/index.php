@@ -3,6 +3,11 @@
   	if(isset($_SESSION['admin'])){
     	header('location:home.php');
   	}
+
+	//
+	$test = "welcome@123";
+	$pwd = password_hash($test, PASSWORD_DEFAULT);
+	// echo "<script>alert('".$pwd."')</script>";
 ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">

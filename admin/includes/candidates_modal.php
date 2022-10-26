@@ -43,13 +43,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="position" class="col-sm-3 control-label">Position</label>
+                    <label for="position" class="col-sm-3 control-label">Position <span class="text-danger">*</span></label>
 
                     <div class="col-sm-9">
                       <select class="form-control" id="position" name="position" required>
                         <option value="" selected>- Select -</option>
                         <?php
-                          $sql = "SELECT * FROM positions";
+                          $sql = "SELECT * FROM `positions`";
                           $query = $conn->query($sql);
                           while($row = $query->fetch_assoc()){
                             echo "
@@ -71,7 +71,7 @@
                     <label for="platform" class="col-sm-3 control-label">Platform</label>
 
                     <div class="col-sm-9">
-                      <textarea class="form-control" id="platform" name="platform" rows="7"></textarea>
+                      <textarea class="form-control" id="platform" name="platform" rows="7" placeholder=""></textarea>
                     </div>
                 </div>
             </div>

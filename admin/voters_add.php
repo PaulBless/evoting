@@ -14,9 +14,8 @@
 			move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);	
 		}
 		//generate voters id & password
-		$set = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSSTUVWXYZ';
-		// $voter = substr(str_shuffle($set), 0, 15);
-		$voter = mt_rand(111111,999999);
+		$set = '123456789abcdefghijklmnopqrstuvwxyz';
+		$voter = substr(str_shuffle($set), 0, 8);
 		$password = password_hash($voter, PASSWORD_DEFAULT);
 		$username = "student";
 
