@@ -8,10 +8,11 @@
 	## remote db connection parameters
 	$host = "sql300.unaux.com";
 	$user = "unaux_32779978";
-	$password = "lpp0kjgz6";
+	$password = "password@12345";
 	$database = "unaux_32779978_jecvote";
 	$port = "3306";
 	
+	// lpp0kjgz6
 	## Check connection
 	$conn = new mysqli($host, $user, $password, $database);
 
