@@ -10,14 +10,20 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="voters_add.php" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="firstname" class="col-sm-3 control-label">Firstname</label>
+                    <label for="firstname" class="col-sm-3 control-label">
+                      Firstname
+                      <span class="text-danger">*</span>  
+                    </label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="firstname" name="firstname" onkeypress="return acceptLetters(event)" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lastname" class="col-sm-3 control-label">Lastname</label>
+                    <label for="lastname" class="col-sm-3 control-label">
+                      Lastname
+                      <span class="text-danger">*</span>  
+                    </label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="lastname" name="lastname" onkeypress="return acceptLetters(event)" required>
@@ -30,11 +36,11 @@
                       <input type="password" class="form-control" id="password" name="password" value="123456">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group"style="display: nonee;">
                     <label for="password" class="col-sm-3 control-label">Phone Number</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="phone" name="phone" pattern="[0][0-9]{9}" maxLength="10" onkeypress="return isNumberKey(event)" required>
+                      <input type="text" class="form-control" id="phone" name="phone" pattern="[0][0-9]{9}" maxLength="10" onkeypress="return isNumberKey(event)" >
                     </div>
                 </div>
 
@@ -85,7 +91,7 @@
                     <label for="password" class="col-sm-3 control-label">Phone Number</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="phone" name="phone" pattern="[0][0-9]{9}" maxLength="10" required>
+                      <input type="text" class="form-control" id="phone" name="phone" pattern="[0][0-9]{9}" maxLength="10" >
                     </div>
                 </div>
 

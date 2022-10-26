@@ -111,7 +111,8 @@
           <div class="small-box bg-red">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM `votes` GROUP BY `voters_id`";
+                // $sql = "SELECT * FROM `votes` GROUP BY `voters_id`";
+                $sql = "SELECT * FROM `votes`";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";

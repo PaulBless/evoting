@@ -6,11 +6,16 @@
 	// $database = "jecvote";
 	
 	## remote db connection parameters
-	$host = "sql300.unaux.com";
-	$user = "unaux_32779978";
-	$password = "lpp0kjgz6";
-	$database = "unaux_32779978_jecvote";
-	$port = "3306";
+	// $host = "sql300.unaux.com:3306";
+	// $user = "unaux_32779978";
+	// $password = "lpp0kjgz6";
+	// $database = "unaux_32779978_jecvote";
+	
+	## db4free connection parameters
+	$host = "db4free.net:3306";
+	$user = "jecmas";
+	$password = "PBless92";
+	$database = "jecvote";
 	
 	## Check connection
 	$conn = new mysqli($host, $user, $password, $database);
