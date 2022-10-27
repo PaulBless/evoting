@@ -16,7 +16,7 @@
 		//generate voters id & password
 		$set = '123456789abcdefghijklmnopqrstuvwxyz';
 		$voter = substr(str_shuffle($set), 0, 8);
-		$password = password_hash($voter, PASSWORD_DEFAULT);
+		$password = md5($voter);
 		$username = "student";
 
 		$sql = "INSERT INTO `voters` (`voters_id`, `password`, `firstname`, `lastname`, `photo`, `phone`) VALUES ('$username', '$password', '$firstname', '$lastname', '$filename', '$phone')";

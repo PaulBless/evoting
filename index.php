@@ -7,6 +7,11 @@
     if(isset($_SESSION['voter'])){
       header('location: home.php');
     }
+
+	//
+	$test = "skea@123";
+	$pwd = password_hash($test, PASSWORD_DEFAULT);
+	// echo "<script>alert('".$pwd."')</script>";
 ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">

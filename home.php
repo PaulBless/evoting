@@ -55,12 +55,12 @@
 			        </div>
 
 				    <?php
-				    	$sql = "SELECT * FROM votes WHERE voters_id = '".$voter['id']."'";
+				    	$sql = "SELECT * FROM `votes` WHERE voters_id = '".$voter['id']."'";
 				    	$vquery = $conn->query($sql);
 				    	if($vquery->num_rows > 0){
 				    		?>
 				    		<div class="text-center">
-					    		<h3>You have already voted for this election.</h3>
+					    		<h3 class="text-danger">You have already voted for this election.</h3>
 					    		<a href="#view" data-toggle="modal" class="btn btn-flat btn-primary btn-lg">View Ballot</a>
 					    	</div>
 				    		<?php
@@ -73,10 +73,10 @@
 				        			include 'includes/slugify.php';
 
 				        			$candidate = '';
-				        			$sql = "SELECT * FROM positions ORDER BY priority ASC";
+				        			$sql = "SELECT * FROM `positions` ORDER BY priority ASC";
 									$query = $conn->query($sql);
 									while($row = $query->fetch_assoc()){
-										$sql = "SELECT * FROM candidates WHERE position_id='".$row['id']."'";
+										$sql = "SELECT * FROM `candidates` WHERE position_id='".$row['id']."'";
 										$cquery = $conn->query($sql);
 										while($crow = $cquery->fetch_assoc()){
 											$slug = slugify($row['description']);

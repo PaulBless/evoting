@@ -8,7 +8,7 @@
 		}
 		else{
 			$_SESSION['post'] = $_POST;
-			$sql = "SELECT * FROM positions";
+			$sql = "SELECT * FROM `positions`";
 			$query = $conn->query($sql);
 			$error = false;
 			$sql_array = array();

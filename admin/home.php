@@ -111,11 +111,12 @@
           <div class="small-box bg-red">
             <div class="inner">
               <?php
-                // $sql = "SELECT * FROM `votes` GROUP BY `voters_id`";
-                $sql = "SELECT * FROM `votes`";
-                $query = $conn->query($sql);
 
+                $sql = "SELECT * FROM `votes` GROUP BY `voters_id`";
+                $query = $conn->query("SET sql_mode = ''");  // for db user privilege permission
+                $query = $conn->query($sql);
                 echo "<h3>".$query->num_rows."</h3>";
+
               ?>
 
               <p>Voters Voted</p>

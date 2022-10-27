@@ -1,5 +1,8 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -45,6 +48,7 @@
           <div class="box">
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Add New Voter </a>
+              <button class="btn btn-info country-btn pull-right" data-toggle="modal" disabled data-target="#importCountryModal"> <i class="fa fa-upload"></i> Import Voters CSV</button>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
@@ -53,7 +57,7 @@
                   <th>Firstname</th>
                   <th>Photo</th>
                   <th>Voters ID</th>
-                  <th>Tools</th>
+                  <th>Actions</th>
                 </thead>
                 <tbody>
                   <?php
@@ -130,6 +134,60 @@ function getRow(id){
     }
   });
 }
+</script>
+<script type="text/javascript">
+  $(document).ready(function(e){
+    // alert('welcome');
+    // swal('hello','sweetalert works!', 'success');
+
+     // trigger upload country csv
+     $('#upload_country_form').submit(function(e){
+      e.preventDefault();
+      $.ajax({
+          type: 'POST',
+          url: 'upload_voters.php',
+          data: new FormData(this),
+          contentType: false,
+          cache: false,
+          processData:false,
+          beforeSend: function(){
+              $('.btn-success').attr("disabled","disabled");
+              $('.btn-success').text("uploading..");
+              $('#upload_country_form').css("opacity",".5");
+          },
+          success: function(response) { 
+              console.log(response);
+              if(response =='invalid_file')  
+                {  
+                  swal('INVALID FILE', 'The Uploaded File is an Invalid CSV Format', 'error'); 
+                }  
+                else if(response == "empty_file")  
+                {  
+                  swal("ERROR!","Please Select CSV File","warning");  
+                  $('#upload_country_form').css("opacity","");
+                  $(".btn-success").removeAttr("disabled"); 
+                }                           
+                else if(response == "successful")  
+                {  
+                  //   alert("CSV File Data has been Imported Successfully");
+                  swal(
+                  'BRAVO!!', 
+                  'CSV File Data has been Imported Successfully..<br><b>Notice</b> Click OK button to reload the page!', 'success'); 
+                  location.reload();
+                }  
+                else  
+                {  
+                    // do nothing  
+                }  
+
+              //reset form state
+              $('#upload_country_form').css("opacity","");
+              $(".btn-success").removeAttr("disabled");
+              $(".btn-success").text("Upload FIle");
+          }
+      });
+  });
+  });
 </script>
 </body>
 </html>

@@ -47,7 +47,7 @@
           <div class="box">
             <div class="box-header with-border">
               <a href="#reset" data-toggle="modal" class="btn btn-danger btn-md btn-flat"><i class="fa fa-refresh"></i> Reset</a>
-              <!-- <a href="vote_details.php" class="btn btn-primary btn-md btn-flat pull-right"><i class="fa fa-calculator"></i> Vote Total Counts</a> -->
+              <!-- <a href="vote_details.php" class="btn btn-info btn-md btn-round pull-right"><i class="fa fa-calculator"></i> Vote Total Counts</a> -->
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
@@ -55,19 +55,31 @@
                   <th class="hidden"></th>
                   <th>Position</th>
                   <th>Candidate</th>
-                  <th>Voter</th>
+                  <th>Total Votes</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, candidates.firstname AS canfirst, candidates.lastname AS canlast, voters.firstname AS votfirst, voters.lastname AS votlast FROM votes LEFT JOIN positions ON positions.id=votes.position_id LEFT JOIN candidates ON candidates.id=votes.candidate_id LEFT JOIN voters ON voters.id=votes.voters_id ORDER BY positions.priority ASC";
-                    $query = $conn->query($sql);
-                    while($row = $query->fetch_assoc()){
+                  $sql = "SELECT * FROM `positions` ORDER BY `priority` ASC";
+                  $query = $conn->query($sql);
+                  while($row = $query->fetch_assoc()) {
+                    $sql = "SELECT * FROM `candidates` WHERE `position_id` = '".$row['id']."'";
+                    $cquery = $conn->query($sql);
+                    $carray = $position = '';
+                    $varray = 0;
+                    while($crow = $cquery->fetch_assoc()){
+                      $carray = $crow['lastname'].' '.$crow['firstname'];
+
+                      $sql = "SELECT * FROM `votes` WHERE `candidate_id` = '".$crow['id']."'";
+                      $vquery = $conn->query($sql);
+                      $varray = $vquery->num_rows;
+                    }                    
+                    
                       echo "
                         <tr>
                           <td class='hidden'></td>
                           <td>".$row['description']."</td>
-                          <td>".$row['canfirst'].' '.$row['canlast']."</td>
-                          <td>".$row['votfirst'].' '.$row['votlast']."</td>
+                          <td>".$carray."</td>
+                          <td class='text-center'>".$varray."</td>
                         </tr>
                       ";
                     }
