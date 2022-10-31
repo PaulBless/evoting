@@ -46,8 +46,8 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#reset" data-toggle="modal" class="btn btn-danger btn-md btn-flat"><i class="fa fa-refresh"></i> Reset</a>
-              <!-- <a href="vote_details.php" class="btn btn-primary btn-md btn-flat pull-right"><i class="fa fa-calculator"></i> Vote Total Counts</a> -->
+              <a href="#reset" data-toggle="modal" class="btn btn-danger btn-md btn-flat"><i class="fa fa-refresh"></i> Reset Votes</a>
+              <a href="votes_details.php" class="btn btn-primary btn-md btn-flat pull-right"><i class="fa fa-retweet"></i> Vote Counts</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">

@@ -1,5 +1,13 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
+
+<?php
+  $txt = '12345678';
+  $pwd = md5($txt);
+  // echo "<script>alert('$pwd')</script>";
+
+ 
+?>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
   
@@ -48,7 +56,7 @@
           <div class="box">
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Add New Voter </a>
-              <button class="btn btn-info country-btn pull-right" data-toggle="modal" disabled data-target="#importCountryModal"> <i class="fa fa-upload"></i> Import Voters CSV</button>
+              <button class="btn btn-warning country-btn pull-right" data-toggle="modal" data-target="#importCountryModal"> <i class="fa fa-upload"></i> Import Voters CSV</button>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
@@ -170,9 +178,7 @@ function getRow(id){
                 else if(response == "successful")  
                 {  
                   //   alert("CSV File Data has been Imported Successfully");
-                  swal(
-                  'BRAVO!!', 
-                  'CSV File Data has been Imported Successfully..<br><b>Notice</b> Click OK button to reload the page!', 'success'); 
+                  swal('BRAVO!!', 'CSV File Imported Successfully..!', 'success'); 
                   location.reload();
                 }  
                 else  

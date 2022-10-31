@@ -37,29 +37,22 @@ if(!empty($_FILES["file"]["name"]))
             // validate csv data
             $firstname = mysqli_real_escape_string($conn,$getData[0]);
             $lastname = mysqli_real_escape_string($conn,$getData[1]);
+            $username = mysqli_real_escape_string($conn, $getData[1]);
             $phone = mysqli_real_escape_string($conn,$getData[3]);
         
             //generate voters id & password
-            $set = '123456789abcdefghijklmnopqrstuvwxyz';
+            $set = '12345';
             $voter = substr(str_shuffle($set), 0, 8);
-            $password = password_hash($voter, PASSWORD_DEFAULT);
-            $username = "student";
+            $password = md5($set);
 
-            //print each data to text file
-            $txtFile = 'voters.txt';
-            $data = fopen($txtFile, "w+");
-            foreach ($getData as $rec) {
-                fwrite($data, $firstname.' '.$lastname.' '.$username.' '.$voter.PHP_EOL);
-            }
-            fwrite($data, $firstname.' '.$lastname.' '.$username.' '.$voter.PHP_EOL);
-
+         
             /** check if voter record already exist in table */ 
             // $check_if_voter_exist = $conn->query("SELECT * FROM `voters` WHERE `firstname` = '{$firstname}' AND `lastname` = '{$lastname}'");
             // if($check_if_voter_exist->num_rows > 0){
             //     echo "voter_exists"; return;
             // } 
         
-            // add voters to db
+            // add query 
             $sql = "INSERT INTO `voters` (`voters_id`, `password`, `firstname`, `lastname`) VALUES (?,?,?,?)";
 
             // prepare sql query statement

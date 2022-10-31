@@ -185,8 +185,10 @@
     $varray = array();
     while($crow = $cquery->fetch_assoc()){
       array_push($carray, $crow['lastname']);
-      $sql = "SELECT * FROM `votes` WHERE `candidate_id` = '".$crow['id']."'";
+      $sql = "SELECT * FROM `votes` WHERE `candidate_id` = '".$crow['id']."' GROUP BY `voters_id`";
+      $vquery = $conn->query("SET sql_mode = ''");  // for db user privilege permission
       $vquery = $conn->query($sql);
+
       array_push($varray, $vquery->num_rows);
     }
     $carray = json_encode($carray);

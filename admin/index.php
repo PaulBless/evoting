@@ -5,9 +5,9 @@
   	}
 
 	//
-	$test = "welcome@123";
+	$test = "@Fast123";
 	$pwd = password_hash($test, PASSWORD_DEFAULT);
-	// echo "<script>alert('".$pwd."')</script>";
+	//echo "<script>alert('".$pwd."')</script>";
 ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">
@@ -48,5 +48,10 @@
 </div>
 	
 <?php include 'includes/scripts.php' ?>
+<script type="">
+	$('frmLogn').submit(function(e){
+
+	});
+</script>
 </body>
 </html>

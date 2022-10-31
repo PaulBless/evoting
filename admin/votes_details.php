@@ -46,8 +46,8 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#reset" data-toggle="modal" class="btn btn-danger btn-md btn-flat"><i class="fa fa-refresh"></i> Reset</a>
-              <!-- <a href="vote_details.php" class="btn btn-info btn-md btn-round pull-right"><i class="fa fa-calculator"></i> Vote Total Counts</a> -->
+              <a href="votes.php" class="btn btn-info btn-md btn-round "><i class="glyphicon glyphicon-lock"></i> Votes</a>
+              <a href="#reset" data-toggle="modal" class="btn btn-danger btn-md btn-flat pull-right"><i class="fa fa-refresh"></i> Reset Votes</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
@@ -68,10 +68,11 @@
                     $varray = 0;
                     while($crow = $cquery->fetch_assoc()){
                       $carray = $crow['lastname'].' '.$crow['firstname'];
-
-                      $sql = "SELECT * FROM `votes` WHERE `candidate_id` = '".$crow['id']."'";
+                      $sql = "SELECT * FROM `votes` WHERE `candidate_id` = '".$crow['id']."' GROUP BY `voters_id`";
+                      $vquery = $conn->query("SET sql_mode = ''");  // for db user privilege permission
                       $vquery = $conn->query($sql);
                       $varray = $vquery->num_rows;
+                      var_dump($carray);
                     }                    
                     
                       echo "
@@ -79,7 +80,7 @@
                           <td class='hidden'></td>
                           <td>".$row['description']."</td>
                           <td>".$carray."</td>
-                          <td class='text-center'>".$varray."</td>
+                          <td class='text-centerr'>".$varray."</td>
                         </tr>
                       ";
                     }

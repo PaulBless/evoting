@@ -4,7 +4,7 @@
 	function generateRow($conn){
 		$contents = '';
 	 	
-		$sql = "SELECT * FROM positions ORDER BY priority ASC";
+		$sql = "SELECT * FROM `positions` ORDER BY `priority` ASC";
         $query = $conn->query($sql);
         while($row = $query->fetch_assoc()){
         	$id = $row['id'];
@@ -18,10 +18,11 @@
         		</tr>
         	';
 
-        	$sql = "SELECT * FROM candidates WHERE position_id = '$id' ORDER BY lastname ASC";
+        	$sql = "SELECT * FROM `candidates` WHERE `position_id` = '$id' ORDER BY lastname ASC";
     		$cquery = $conn->query($sql);
     		while($crow = $cquery->fetch_assoc()){
-    			$sql = "SELECT * FROM votes WHERE candidate_id = '".$crow['id']."'";
+    			$sql = "SELECT * FROM `votes` WHERE `candidate_id` = '".$crow['id']."' GROUP BY `voters_id`";
+				$vquery = $conn->query("SET sql_mode = ''");  // for db user privilege permission
       			$vquery = $conn->query($sql);
       			$votes = $vquery->num_rows;
 
